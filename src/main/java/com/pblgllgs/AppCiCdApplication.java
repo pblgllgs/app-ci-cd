@@ -17,6 +17,6 @@ public class AppCiCdApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner(){
-		return args -> LOGGER.info("App run successfully");
+		return args -> LOGGER.info("App run successfully v2");
 	}
 }
