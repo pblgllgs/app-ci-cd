@@ -1,6 +1,9 @@
 name: Run SonarQube with Maven
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
