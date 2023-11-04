@@ -30,8 +30,8 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and Push Docker Image
-      run: |
-        docker build -t pblgllgs/app-ci-cd:latest .
-        docker push pblgllgs/app-ci-cd:latest
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      uses: docker/build-push-action@v2
+      with:
+          context: .
+          push: true
+          tags: pblgllgs/app-ci-cd:latest
