@@ -33,3 +33,5 @@ jobs:
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/app-ci-cd:latest .
         docker push ${{ secrets.DOCKER_USERNAME }}/app-ci-cd:latest
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
