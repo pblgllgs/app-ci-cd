@@ -31,7 +31,7 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/app-ci-cd:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/app-ci-cd:latest
+        docker build -t pblgllgs/app-ci-cd:latest .
+        docker push pblgllgs/app-ci-cd:latest
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
