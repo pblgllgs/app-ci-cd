@@ -12,7 +12,5 @@ COPY --from=build /project/target/app-ci-cd-2.0.0.jar /app/app-ci-cd-2.0.0.jar
 WORKDIR /app
 RUN chown -R javauser:javauser /app
 USER javauser
-RUN apk add --update \
-    curl \
-    && rm -rf /var/cache/apk/*
+RUN apk add --update curl && rm -rf /var/cache/apk/*
 CMD "dumb-init" "java" "-jar" "app-ci-cd-1.0.0.jar"
