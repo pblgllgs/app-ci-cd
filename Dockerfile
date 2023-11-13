@@ -8,7 +8,7 @@ FROM eclipse-temurin:17-jre-alpine@sha256:da8bbb33e7e61396625b2e47dee1e6f6c164a0
 RUN apk add dumb-init && apk cache clean
 RUN mkdir /app
 RUN addgroup --system javauser && adduser -S -s /bin/false -G javauser javauser
-COPY --from=build /project/target/app-ci-cd-1.0.0.jar /app/app-ci-cd-1.0.0.jar
+COPY --from=build /project/target/app-ci-cd-2.0.0.jar /app/app-ci-cd-2.0.0.jar
 WORKDIR /app
 RUN chown -R javauser:javauser /app
 USER javauser
