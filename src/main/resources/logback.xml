@@ -1,8 +1,0 @@
-<appender name="amqp" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
-    <host>localhost</host>
-    <port>5672</port>
-    <username>guest</username>
-    <password>guest</password>
-    <exchangeName>your-exchange-name</exchangeName>
-    <routingKey>your-routing-key</routingKey>
-</appender>
