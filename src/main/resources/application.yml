@@ -33,3 +33,4 @@ broker:
   name:
     key: logs
     exchange: ex_logstash
+    queue: queue-spring
