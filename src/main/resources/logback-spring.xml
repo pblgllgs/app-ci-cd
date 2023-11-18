@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="AMQP" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
+        <layout>
+            <pattern>
+                {
+                "time": "%date{ISO8601}",
+                "thread": "%thread",
+                "level": "%level",
+                "class": "%logger{36}",
+                "message": "%message"
+                }
+            </pattern>
+        </layout>
+
+        <routingKeyPattern>logs</routingKeyPattern>
+        <charset>UTF-8</charset>
+        <exchangeType>direct</exchangeType>
+        <declareExchange>true</declareExchange>
+        <exchangeName>ex_logstash</exchangeName>
+        <routingKey>logs</routingKey>
+        <host>localhost</host>
+        <port>5672</port>
+        <username>guest</username>
+        <password>guest</password>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="AMQP" />
+    </root>
+
+</configuration>
