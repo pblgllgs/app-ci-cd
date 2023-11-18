@@ -18,10 +18,13 @@ import org.springframework.stereotype.Service;
 public class MessageProducer {
     private final RabbitTemplate rabbitTemplate;
 
-    @Value("${broker.key.name}")
+    @Value("${broker.name.key}")
     private String routingKey;
 
+    @Value("${broker.name.exchange}")
+    private String exchange;
+
     public void publisherMessageEmail(Message message) {
-        rabbitTemplate.convertAndSend("ex_logstash", routingKey, message);
+        rabbitTemplate.convertAndSend(exchange, routingKey, message);
     }
 }

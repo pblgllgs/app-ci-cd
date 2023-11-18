@@ -30,5 +30,6 @@ spring:
 
 
 broker:
-  key:
-    name: logs
+  name:
+    key: logs
+    exchange: ex_logstash
