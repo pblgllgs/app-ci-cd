@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <springProperty name="routing-key" source="broker.name.key" />
+    <springProperty name="exchange" source="broker.name.exchange" />
+    <springProperty name="host" source="spring.rabbitmq.host" />
+    <springProperty name="port" source="spring.rabbitmq.port" />
+    <springProperty name="username" source="spring.rabbitmq.username" />
+    <springProperty name="password" source="spring.rabbitmq.password" />
+
     <appender name="AMQP" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
         <layout>
             <pattern>
@@ -18,12 +25,12 @@
         <charset>UTF-8</charset>
         <exchangeType>direct</exchangeType>
         <declareExchange>true</declareExchange>
-        <exchangeName>ex_logstash</exchangeName>
-        <routingKey>logs</routingKey>
-        <host>localhost</host>
-        <port>5672</port>
-        <username>guest</username>
-        <password>guest</password>
+        <exchangeName>${exchange}</exchangeName>
+        <routingKey>${routing-key}</routingKey>
+        <host>${host}</host>
+        <port>${port}</port>
+        <username>${username}</username>
+        <password>${password}</password>
     </appender>
 
     <root level="INFO">
